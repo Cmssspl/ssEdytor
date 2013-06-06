@@ -198,18 +198,18 @@
 				return ssEdytorBar;
 			})();
 
-			$(function() {
-				var bar = new ssEdytorBar();
+$(function() {
+	var bar = new ssEdytorBar();
 
-				$('.editor').ssEditor({
-					bar: bar,
-					events: {
-						blur: function() {
-//							console.log(this.getContent());
-						}
-					}
-				});
-			});
+	$('.editor').ssEditor({
+		bar: bar,
+		events: {
+			blur: function() {
+				console.log(this.getContent());
+			}
+		}
+	});
+});
 		</script>
 
 		<div class="wrapper">
