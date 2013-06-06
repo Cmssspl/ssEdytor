@@ -1,8 +1,8 @@
 ssEdytor
-========
+======
 
 Use
-=======
+====
 
   		$(function() {
 				var bar = new ssEdytorBar();
