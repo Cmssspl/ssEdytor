@@ -1,9 +1,9 @@
 ssEdytor
-======
+==
 
 Use
-====
-
+=
+```php
   		$(function() {
 				var bar = new ssEdytorBar();
 
@@ -16,3 +16,4 @@ Use
 					}
 				});
 			});
+```
