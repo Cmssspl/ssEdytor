@@ -37,6 +37,18 @@
 			.editor.active {
 				outline: 2px solid #ff0000;
 			}
+
+            /*edytor*/
+            .ssEditorBar {
+                width: 400px;
+                height: 80px;
+
+                position:  absolute;
+                top: 0px;
+                left: 0px;
+
+                background-color: #eeeeee;
+            }
 		</style>
 	</head>
 	<body>
@@ -78,7 +90,7 @@
 
 						//uruchamianie bara
 						if(plagin.config.bar !== false) {
-							plagin.config.bar.open.call(plagin);
+							plagin.config.bar.open.call(plagin.config.bar, plagin);
 						}
 					});
 
@@ -89,7 +101,7 @@
 
 						//wyłączanie bara
 						if(plagin.config.bar !== false) {
-							plagin.config.bar.close.call(plagin);
+							plagin.config.bar.close.call(plagin.config.bar, plagin);
 						}
 					});
 
@@ -158,6 +170,7 @@
 					this.config = $.extend( {}, configDefaults, options);
 
 					this.active = false;
+                    this.bar = false;
 					this.dom = {
 						body: $('body')
 					};
@@ -166,6 +179,7 @@
 				};
 
 				ssEdytorBar.prototype.init = function () {
+                    //tworzenie bara
 					var html = $('<section>').attr('class', 'ssEditorBar');
 
 					var tabs = $('<ul>').addClass('tab');
@@ -179,19 +193,29 @@
 					html.append(tabs);
 					html.append(box);
 
-//					this.dom.ssEditorBar = html;
-
-					this.dom.body.prepend(html);
+                    this.bar = html;
+					this.dom.body.prepend(this.bar);
 
 //					var qw = $('').appendTo(this.dom.ssEditorBar);
 					console.log(html);
 				};
 
-				ssEdytorBar.prototype.open = function () {
-					console.log('open');
+				ssEdytorBar.prototype.open = function (editor) {
+                    this.bar.show();
+
+                    this.bar.offset( {
+                        top: editor.element.offset().top,
+                        left: editor.element.offset().left
+                    });
+
+                    this.bar.show();
+
+                    console.log('open');
 				};
 
-				ssEdytorBar.prototype.close = function () {
+				ssEdytorBar.prototype.close = function (editor) {
+                    this.bar.hide();
+
 					console.log('close');
 				};
 
