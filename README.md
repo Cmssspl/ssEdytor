@@ -8,7 +8,9 @@ SsEditor to pole edytowalne umożliwiające zmianę treści na żwyo na stronie,
 $('.editor').ssEditor();
 ```
 
+# Header 1 #
 
+## Header 2 ##
 
 SsEditorBar
 --------
