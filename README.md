@@ -11,7 +11,13 @@ $('.editor').ssEditor();
 ### Opcje ###
 ```js
 $('.editor').ssEditor({
-	bar: [SsEditorBar](#sseditorbar)
+	bar: 			false, //Przypisanie paska narzedziowego
+	activeClass: 	'active',
+	hoverClass: 	'hover',
+	events: {
+		'active': 	false,
+		'deactive': false,
+	}
 });
 ```
 

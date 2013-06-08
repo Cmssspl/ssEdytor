@@ -1,7 +1,6 @@
 (function ( $, window, document, undefined ) {
 	var pluginName = 'ssEditor';
 	var configDefaults = {
-		active: true,
 		activeClass: 'active',
 		hoverClass: 'hover',
 		events: {},
