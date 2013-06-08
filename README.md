@@ -20,4 +20,3 @@ SsEditorBar to pasek narzędzi pomocnych w edycji, by go użyć wystarczy stworz
 		bar: ssEdytorBar
 	});
 ```
-
