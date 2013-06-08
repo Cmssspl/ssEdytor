@@ -11,7 +11,7 @@ $('.editor').ssEditor();
 ### Opcje ###
 ```js
 $('.editor').ssEditor({
-	bar: SsEditorBar
+	bar: [SsEditorBar](#sseditorbar)
 });
 ```
 
