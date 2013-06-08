@@ -8,6 +8,8 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="ssEdytor.js"></script>
 
+		<link rel="stylesheet" type="text/css" href="ssEdytor.css">
+
 		<style>
 			.wrapper {
 				margin: 100px auto;
@@ -30,70 +32,6 @@
 				font-size: 14px;
 				font-family: 'open sans';
 			}
-
-			.editor.hover {
-				outline: 2px solid #ffc8c8;
-			}
-
-			.editor.active {
-				outline: 2px solid #ff0000;
-			}
-
-            /*edytor*/
-            .ssEditorBar {
-                width: 400px;
-                height: 80px;
-
-                position:  absolute;
-                top: 0px;
-                left: 0px;
-
-				border: 1px solid #AAAAAA;
-				border-radius: 2px;
-
-                background-color: #EEEEEE;
-
-				font-family: 'open sans';
-				font-size: 13px;
-            }
-
-			.ssEditorBar .tab {
-				margin: 0px;
-				padding: 0px;
-
-				/*width: 400px;*/
-				/*height: 20px;*/
-
-				overflow: hidden;
-
-				/*border-left: 1px solid #EEEEEE;*/
-				/*border-right: 1px solid #BBBBBB;*/
-				border-bottom: 1px solid #CCCCCC;
-
-				background-color: #E0E0E0;
-
-				list-style: none;
-			}
-
-			.ssEditorBar .tab li {
-				float: left;
-
-				border-left: 1px solid #EEEEEE;
-				border-right: 1px solid #BBBBBB;
-			}
-
-			.ssEditorBar .tab li.active {
-				background-color: #EEEEEE;
-			}
-
-			.ssEditorBar .tab li a {
-				padding: 4px 6px;
-
-				display: block;
-
-				color: #333333;
-				text-decoration: none;
-			}
 		</style>
 	</head>
 	<body>
@@ -101,7 +39,7 @@
 			$(function() {
 //				var bar = new ssEdytorBar();
 
-				$('.editor').ssEditor();
+				$('.editor').ssEditor({});
 ////					bar: bar,
 //					events: {}
 //				});
