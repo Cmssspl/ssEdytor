@@ -9,9 +9,12 @@ $('.editor').ssEditor();
 ```
 
 ### Opcje ###
+
+###### Standardowe wartości: ######
+
 ```js
 $('.editor').ssEditor({
-	bar: 			false, //Przypisanie paska narzedziowego
+	bar: 			false,
 	activeClass: 	'active',
 	hoverClass: 	'hover',
 	events: {
@@ -21,14 +24,13 @@ $('.editor').ssEditor({
 });
 ```
 
+##### bar: #####
+Obiekt reprezentujący klasę [ssEdytorBar](#aseditorbar).
+
 ## SsEditorBar ##
 
 SsEditorBar to pasek narzędzi pomocnych w edycji, by go użyć wystarczy stworzyć jego obiekt, a następnie przypisać go do wybranych pól:
 
 ```js
 var ssEdytorBar = new ssEdytorBar();
-
-$('.editor').ssEditor({
-	bar: ssEdytorBar
-});
 ```
