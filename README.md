@@ -10,7 +10,7 @@ $('.editor').ssEditor();
 
 ### Opcje ###
 
-###### Standardowe wartości: ######
+#### Standardowe wartości: ####
 
 ```js
 $('.editor').ssEditor({
@@ -24,8 +24,8 @@ $('.editor').ssEditor({
 });
 ```
 
-##### bar: #####
-Obiekt reprezentujący klasę [ssEdytorBar](#aseditorbar).
+#### bar: ####
+Obiekt reprezentujący klasę [ssEdytorBar](#sseditorbar).
 
 ## SsEditorBar ##
 
