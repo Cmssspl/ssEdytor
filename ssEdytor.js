@@ -3,7 +3,12 @@
 	var configDefaults = {
 		activeClass: 'active',
 		hoverClass: 'hover',
-		events: {},
+		events: {
+			'active': 		false,
+			'deactive': 	false,
+			'mouseenter':	false,
+			'mouseleave': 	false
+		},
 		bar: false
 	};
 

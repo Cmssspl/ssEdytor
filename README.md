@@ -18,14 +18,30 @@ $('.editor').ssEditor({
 	activeClass: 	'active',
 	hoverClass: 	'hover',
 	events: {
-		'active': 	false,
-		'deactive': false,
+		'active': 		false,
+		'deactive': 	false,
+		'mouseenter':	false,
+		'mouseleave': 	false
 	}
 });
 ```
 
 #### bar: ####
 Obiekt reprezentujący klasę [ssEdytorBar](#sseditorbar).
+
+#### activeClass: ####
+Klasa przypisana do pola tekstowego gdy edytowalne pole jest aktywne/zaznaczone.
+
+#### hoverClass: ####
+Klasa przypisana do pola tekstowego gdy myszka znajduje się nad edytowalnym polem.
+
+#### events: ####
+Lista eventów edytora do jakich możesz się podłączyć:
+
+* active
+* deactive
+* mouseenter
+* mouseleave
 
 ## SsEditorBar ##
 
