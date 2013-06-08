@@ -38,10 +38,21 @@ Klasa przypisana do pola tekstowego gdy myszka znajduje się nad edytowalnym pol
 #### events: ####
 Lista eventów edytora do jakich możesz się podłączyć:
 
-* active
-* deactive
-* mouseenter
-* mouseleave
+* active - Wywoływany po kliknięciu w edytor.
+* deactive - Wywoływany po wyjściu z edytora.
+* mouseenter - Wywoływany po najechaniu myszką na edytor.
+* mouseleave - Wywoływany po zjechaniu myszką z edytora.
+
+Aby dodać event:
+```js
+$('.editor').ssEditor({
+	events: {
+		'active':	function() {
+			console.log('active');
+		}
+	}
+});
+```
 
 ## SsEditorBar ##
 
