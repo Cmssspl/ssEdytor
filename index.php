@@ -40,9 +40,6 @@
 //				var bar = new ssEdytorBar();
 
 				$('.editor').ssEditor({});
-////					bar: bar,
-//					events: {}
-//				});
 			});
 		</script>
 

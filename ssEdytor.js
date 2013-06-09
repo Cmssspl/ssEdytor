@@ -30,6 +30,9 @@
 	}
 
 	Plugin.prototype.init = function () {
+		//dodaje edytowalność
+		this.element.attr('contenteditable', true);
+
 		//obsługa eventów
 		this.initEvent();
 	};
@@ -38,7 +41,7 @@
 		var ssEditor = this;
 
 		//event active
-		this.element.on('click', function() {
+		this.element.on('focus', function() {
 			ssEditor.active = true;
 
 			ssEditor.element.addClass(ssEditor.config.activeClass);
@@ -51,7 +54,7 @@
 		});
 
 		//event deactive
-		$('body').on('click', function() {
+		this.element.on('blur', function() {
 			ssEditor.active = false;
 
 			ssEditor.element.removeClass(ssEditor.config.activeClass);
