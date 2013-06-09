@@ -44,8 +44,15 @@
 		this.element.on('focus', function() {
 			ssEditor.active = true;
 
+			//dodanie klasy active
 			ssEditor.element.addClass(ssEditor.config.activeClass);
 
+			//uruchamianie bara
+			if(ssEditor.config.bar !== false) {
+				ssEditor.config.bar.open.call(ssEditor.config.bar, ssEditor);
+			}
+
+			//uruchomienie callbacka
 			if(typeof(ssEditor.config.events.active) == 'function') {
 				ssEditor.config.events.active.call(this);
 			}
@@ -57,8 +64,15 @@
 		this.element.on('blur', function() {
 			ssEditor.active = false;
 
+			//usunięcie klasy active
 			ssEditor.element.removeClass(ssEditor.config.activeClass);
 
+			//wyłączanie bara
+			if(ssEditor.config.bar !== false) {
+				ssEditor.config.bar.close.call(ssEditor.config.bar, ssEditor);
+			}
+
+			//uruchomienie callbacka
 			if(typeof(ssEditor.config.events.deactive) == 'function') {
 				ssEditor.config.events.deactive.call(this);
 			}
@@ -70,8 +84,10 @@
 		this.element.on('mouseenter', function() {
 			ssEditor.hover = true;
 
+			//dodanie klasy hover
 			ssEditor.element.addClass(ssEditor.config.hoverClass);
 
+			//uruchomienie callbacka
 			if(typeof(ssEditor.config.events.mouseenter) == 'function') {
 				ssEditor.config.events.mouseenter.call(this);
 			}
@@ -83,8 +99,10 @@
 		this.element.on('mouseleave', function() {
 			ssEditor.hover = false;
 
+			//usunięcie klasy hover
 			ssEditor.element.removeClass(ssEditor.config.hoverClass);
 
+			//uruchomienie callbacka
 			if(typeof(ssEditor.config.events.mouseleave) == 'function') {
 				ssEditor.config.events.mouseleave.call(this);
 			}
@@ -109,5 +127,31 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var ssEdytorBar = (function () {
+	var pluginName = 'ssEdytorBar';
+	var configDefaults = {
+	};
 
+	var Plugin = function (options) {
+		this.element 	= $(element);
+		this._defaults 	= configDefaults;
+		this._name 		= pluginName;
+
+		this.config = $.extend( {}, configDefaults, options);
+
+		this.active = false;
+
+		this.init();
+	};
+
+	Plugin.prototype.init = function () {
+
+	};
+
+	Plugin.prototype.open = function (editor) {
+		console.log(pluginName+': open');
+	};
+
+	Plugin.prototype.close = function (editor) {
+		console.log(pluginName+': close');
+	};
 });
