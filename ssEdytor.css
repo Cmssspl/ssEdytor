@@ -1,0 +1,78 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//ssEditor
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.editor.hover {
+	outline: 2px solid #ffc8c8;
+}
+
+.editor.active {
+	outline: 2px solid #ff0000;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//ssEditorBar
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.ssEditorBar {
+	width: 400px;
+	height: 80px;
+
+	position:  absolute;
+	top: 0px;
+	left: 0px;
+
+	border: 1px solid #AAAAAA;
+	border-radius: 2px;
+
+	background-color: #EEEEEE;
+
+	font-family: 'open sans';
+	font-size: 13px;
+}
+
+.ssEditorBar .tab {
+	/*width: 400px;*/
+	/*height: 20px;*/
+
+	overflow: hidden;
+
+	border-bottom: 1px solid #CCCCCC;
+	border-radius: 2px 2px 0px 0px;
+
+	background-color: #E0E0E0;
+}
+
+.ssEditorBar .tab ul {
+	margin: 0px;
+	padding: 0px;
+
+	overflow: hidden;
+	float: left;
+
+	border-right: 1px solid #EEEEEE;
+
+	list-style: none;
+}
+
+.ssEditorBar .tab ul li {
+	float: left;
+
+	border-left: 1px solid #EEEEEE;
+	border-right: 1px solid #BBBBBB;
+}
+
+.ssEditorBar .tab ul li:hover {
+	background-color: #EEEEEE;
+}
+
+.ssEditorBar .tab ul li.active {
+	background-color: #EEEEEE;
+}
+
+.ssEditorBar .tab ul li a {
+	padding: 4px 6px;
+
+	display: block;
+
+	color: #333333;
+	text-decoration: none;
+}
