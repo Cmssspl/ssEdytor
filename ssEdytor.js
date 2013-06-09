@@ -17,9 +17,9 @@
 	};
 
 	function Plugin(element, options) {
-		this.element 	= $(element);
 		this._defaults 	= configDefaults;
 		this._name 		= pluginName;
+		this.element 	= $(element);
 
 		this.config = $.extend( {}, configDefaults, options);
 
@@ -129,29 +129,148 @@
 var ssEdytorBar = (function () {
 	var pluginName = 'ssEdytorBar';
 	var configDefaults = {
+		hoverClass:		'hover',
+		tab: 			{
+			format: {
+				name: 'Format',
+				elements: [
+					[
+						'bold',
+						'italic',
+						'underline'
+					]
+				]
+			},
+			cms: {
+				name: 'Cms',
+				elements: [
+					[
+						'switcherCms'
+					]
+				]
+			}
+		},
+		elements: {
+			//podstawowe elementy edytora
+			bold: {
+				name:			'Pogrubienie',
+				description: 	'',
+				callback: 		function() {}
+			},
+			italic:	{
+				name:			'Pochylenie',
+				description: 	'',
+				callback: 		function() {}
+			},
+			underline: {
+				name:			'Podkreślenie',
+				description: 	'',
+				callback: 		function() {}
+			},
+
+			//opcje cms'a
+			switcherCms: {
+				name:			'Zmiana ...',
+				description: 	'',
+				callback: 		function() {}
+			}
+		}
 	};
 
 	var Plugin = function (options) {
-		this.element 	= $(element);
 		this._defaults 	= configDefaults;
 		this._name 		= pluginName;
+		this.element 	= false;
 
 		this.config = $.extend( {}, configDefaults, options);
 
 		this.active = false;
+		this.hover	= false;
 
 		this.init();
 	};
 
 	Plugin.prototype.init = function () {
+		//tworzenie bara
+		this.buildHtml();
 
+		//obsługa eventów
+		this.initEvent();
 	};
 
-	Plugin.prototype.open = function (editor) {
+	Plugin.prototype.buildHtml = function () {
+		//szkielet
+		var html = $('<section>').attr('class', 'ssEditorBar');
+
+		//podział na dwie sekcje taby i treść
+		var tabs 	= $('<ul>');
+		var box 	= $('<ul>');
+
+		//
+		$.each(this.config.tab, function(name, tab) {
+			tabs.append( $('<li>').append( $('<a>').attr('href', '#'+name).text(tab.name) ) );
+			box.append( $('<li>').attr('class', name) );
+		});
+
+		//składanie bara w całość
+		html.append( $('<section>').addClass('tab').append(tabs) );
+		html.append( $('<section>').addClass('box').append(box) );
+
+		//ukrycie bara
+		html.hide();
+
+		//zapisanie do zmiennej obiektu i dodanie do body
+		this.element = html;
+		$('body').prepend(this.element);
+	};
+
+	Plugin.prototype.initEvent = function () {
+		var ssEdytorBar = this;
+
+		this.element.on('mousedown', function(e) {
+			return false;
+		});
+
+		//event mouseenter
+		this.element.on('mouseenter', function() {
+			ssEdytorBar.hover = true;
+
+			//dodanie klasy hover
+			ssEdytorBar.element.addClass(ssEdytorBar.config.hoverClass);
+
+			return false;
+		});
+
+		//event mouseleave
+		this.element.on('mouseleave', function() {
+			ssEdytorBar.hover = false;
+
+			//usunięcie klasy hover
+			ssEdytorBar.element.removeClass(ssEdytorBar.config.hoverClass);
+
+			return false;
+		});
+	};
+
+	Plugin.prototype.open = function (ssEditor) {
 		console.log(pluginName+': open');
+
+		var top = ssEditor.element.offset().top - this.element.outerHeight();
+		var left = ssEditor.element.offset().left;
+
+		this.element.show();
+
+		this.element.offset( {
+			top: top,
+			left: left
+		});
 	};
 
-	Plugin.prototype.close = function (editor) {
+	Plugin.prototype.close = function (ssEditor) {
 		console.log(pluginName+': close');
+
+		this.element.hide();
 	};
-});
+
+	return Plugin;
+})();
