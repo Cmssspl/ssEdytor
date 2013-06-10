@@ -134,11 +134,16 @@ var ssEdytorBar = (function () {
 			format: {
 				name: 'Format',
 				elements: [
-					[
-						'bold',
-						'italic',
-						'underline'
-					]
+                    [
+                        'bold',
+                        'italic',
+                        'underline'
+                    ],
+                    [
+                        'bold',
+                        'italic',
+                        'underline'
+                    ]
 				]
 			},
 			cms: {
@@ -208,16 +213,40 @@ var ssEdytorBar = (function () {
 
 		//
 		$.each(this.config.tab, function(name, tab) {
+            //zakładki
 			tabs.append( $('<li>').append( $('<a>').attr('href', '#'+name).text(tab.name) ) );
-			box.append( $('<li>').attr('class', name) );
+
+            //content
+            var grups = $('<ul>').addClass('grups');
+
+            $.each(tab.elements, function(index, grup) {
+                var elements = $('<ul>').addClass('elements');
+
+                //console.log(tab);
+
+                $.each(grup, function(index, elemetName) {
+                    var element = $('<li>');
+                    element.append( $('<a>').attr('href', '#'+elemetName).text(elemetName) );
+
+                    elements.append( element );
+                });
+
+                grups.append( $('<li>').append( elements ) );
+            });
+
+            box.append( $('<li>').attr('class', name).append(grups) );
 		});
+
+        //aktywacja pierwszej zakładki
+        tabs.children('li').first().addClass('active');
+        box.children('li').first().addClass('active');
 
 		//składanie bara w całość
 		html.append( $('<section>').addClass('tab').append(tabs) );
 		html.append( $('<section>').addClass('box').append(box) );
 
 		//ukrycie bara
-		html.hide();
+//		html.hide();
 
 		//zapisanie do zmiennej obiektu i dodanie do body
 		this.element = html;

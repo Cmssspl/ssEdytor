@@ -30,10 +30,7 @@
 }
 
 .ssEditorBar .tab {
-	/*width: 400px;*/
-	/*height: 20px;*/
-
-	overflow: hidden;
+    height: 26px;
 
 	border-bottom: 1px solid #CCCCCC;
 	border-radius: 2px 2px 0px 0px;
@@ -41,7 +38,7 @@
 	background-color: #E0E0E0;
 }
 
-.ssEditorBar .tab ul {
+.ssEditorBar .tab > ul {
 	margin: 0px;
 	padding: 0px;
 
@@ -53,7 +50,7 @@
 	list-style: none;
 }
 
-.ssEditorBar .tab ul li {
+.ssEditorBar .tab > ul > li {
 	float: left;
 
 	border-left: 1px solid #EEEEEE;
@@ -76,3 +73,106 @@
 	color: #333333;
 	text-decoration: none;
 }
+
+.ssEditorBar .tab ul li.active a {
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.ssEditorBar .box > ul {
+    margin: 0px;
+    padding: 0px;
+
+    list-style: none;
+}
+
+.ssEditorBar .box > ul > li {
+    display: none;
+}
+
+.ssEditorBar .box > ul > li.active {
+    display: block;
+}
+
+.ssEditorBar .box .grups {
+    margin: 0px;
+    padding: 0px;
+
+    overflow: hidden;
+
+    list-style: none;
+}
+
+.ssEditorBar .box .grups > li {
+    height: 45px;
+
+    border-left: 1px solid #ddd;
+}
+
+.ssEditorBar .box .grups > li:first-child {
+    border-left: none;
+}
+
+.ssEditorBar .box .grups > li {
+    margin: 4px 0px 4px 0px;
+    padding: 0px 0px 0px 4px;
+
+    float: left;
+}
+
+.ssEditorBar .box .elements {
+    margin: 0px;
+    padding: 0px;
+
+    overflow: hidden;
+
+    list-style: none;
+}
+
+.ssEditorBar .box .elements > li {
+    margin: 0px 4px 4px 0px;
+
+    float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
