@@ -37,11 +37,7 @@
 	<body>
 		<script>
 			$(function() {
-				var bar = new ssEdytorBar();
-
-				$('.editor').ssEditor({
-					bar: bar
-				});
+                //start
 			});
 		</script>
 
